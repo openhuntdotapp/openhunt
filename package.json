@@ -1,0 +1,97 @@
+{
+  "name": "openhunt",
+  "displayName": "openhunt",
+  "description": "Bug hunting toolkit for security researchers",
+  "version": "0.0.1",
+  "publisher": "openhunt",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "icon": "media/icon.png",
+  "activationEvents": [
+    "onView:openhunt.featuresView"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "openhunt",
+          "title": "openhunt",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "openhunt": [
+        {
+          "id": "openhunt.featuresView",
+          "name": "Features"
+        }
+      ]
+    },
+      "commands": [
+        {
+          "command": "openhunt.httpx.openViewer",
+          "title": "httpx viewer"
+        },
+        {
+          "command": "openhunt.httpx.openFile",
+          "title": "openhunt: open httpx JSON File"
+        },
+        {
+          "command": "openhunt.gf.openViewer",
+          "title": "gf extractor"
+        }
+      ],
+      "submenus": [
+        {
+          "id": "openhunt.submenu",
+          "label": "openhunt"
+        }
+      ],
+      "menus": {
+        "openhunt.submenu": [
+          {
+            "command": "openhunt.httpx.openViewer",
+            "group": "1_tools"
+          },
+          {
+            "command": "openhunt.gf.openViewer",
+            "group": "1_tools"
+          }
+        ],
+        "explorer/context": [
+          {
+            "submenu": "openhunt.submenu",
+            "group": "navigation"
+          }
+        ],
+        "editor/context": [
+          {
+            "submenu": "openhunt.submenu",
+            "group": "navigation"
+          }
+        ]
+      }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "npm run build:extension && npm run build:webview",
+    "build:extension": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+    "build:webview": "cd webview && bun run build",
+    "watch": "npm run build:extension -- --watch",
+    "dev:webview": "cd webview && bun run dev",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.19.0",
+    "typescript": "^5.3.0"
+  }
+}

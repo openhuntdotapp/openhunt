@@ -1,0 +1,30 @@
+# dependencies
+node_modules
+
+# build output
+out
+dist
+
+# packaged extension
+*.vsix
+*.tgz
+
+# logs
+logs
+*.log
+
+# env files
+.env
+.env.*
+
+# caches
+.eslintcache
+.cache
+*.tsbuildinfo
+
+# IDE
+.idea
+.vscode
+
+# OS
+.DS_Store
