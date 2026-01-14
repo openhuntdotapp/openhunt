@@ -111,7 +111,7 @@ export function HTTPxViewer({ data, filename, onOpenFile }: HTTPxViewerProps) {
     return (
       <div className="flex flex-col items-center justify-center h-screen gap-4 p-6">
         <p className="text-muted-foreground text-sm">
-          Open an HTTPx JSON file to view results
+          Open an httpx JSON output file to view
         </p>
         <Button 
           onClick={onOpenFile} 

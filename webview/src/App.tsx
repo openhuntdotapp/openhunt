@@ -1,13 +1,19 @@
 import { useState, useEffect } from 'react'
 import { HTTPxViewer } from '@/components/HTTPxViewer'
 import { GFExtractor } from '@/components/GFExtractor'
+import { JSEndpointExtractor } from '@/components/JSEndpointExtractor'
+import { JSDownloader } from '@/components/JSDownloader'
 import { vscode } from '@/lib/vscode'
 
 type JsonRecord = Record<string, unknown>
 
-function getViewType(): 'gf' | 'httpx' {
+function getViewType(): 'gf' | 'httpx' | 'jsextractor' | 'jsdownloader' {
   const root = document.getElementById('root')
-  return root?.dataset.view === 'gf' ? 'gf' : 'httpx'
+  const view = root?.dataset.view
+  if (view === 'gf') return 'gf'
+  if (view === 'jsextractor') return 'jsextractor'
+  if (view === 'jsdownloader') return 'jsdownloader'
+  return 'httpx'
 }
 
 export default function App() {
@@ -43,6 +49,14 @@ export default function App() {
 
   if (viewType === 'gf') {
     return <GFExtractor />
+  }
+
+  if (viewType === 'jsextractor') {
+    return <JSEndpointExtractor />
+  }
+
+  if (viewType === 'jsdownloader') {
+    return <JSDownloader />
   }
 
   return <HTTPxViewer data={data} filename={filename} onOpenFile={handleOpenFile} />

@@ -1,0 +1,7 @@
+{
+  "projectId": "71fe3b59-e2a6-4b90-8e84-d072ff296f77",
+  "createdAt": 1768307116837,
+  "startupCommands": [
+    "bun install && cd webview && bun install && bun run dev"
+  ]
+}

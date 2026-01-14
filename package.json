@@ -1,7 +1,7 @@
 {
   "name": "openhunt",
   "displayName": "openhunt",
-  "description": "Bug hunting toolkit for security researchers",
+  "description": "bug hunting toolkit for security researchers",
   "version": "0.0.1",
   "publisher": "openhunt",
   "engines": {
@@ -46,6 +46,14 @@
         {
           "command": "openhunt.gf.openViewer",
           "title": "gf extractor"
+        },
+        {
+          "command": "openhunt.jsextractor.openViewer",
+          "title": "js endpoint extractor"
+        },
+        {
+          "command": "openhunt.jsdownloader.openViewer",
+          "title": "js downloader"
         }
       ],
       "submenus": [
@@ -62,6 +70,14 @@
           },
           {
             "command": "openhunt.gf.openViewer",
+            "group": "1_tools"
+          },
+          {
+            "command": "openhunt.jsextractor.openViewer",
+            "group": "1_tools"
+          },
+          {
+            "command": "openhunt.jsdownloader.openViewer",
             "group": "1_tools"
           }
         ],

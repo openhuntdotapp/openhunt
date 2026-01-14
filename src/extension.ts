@@ -1,6 +1,8 @@
 import * as vscode from 'vscode';
 import { registerHttpxCommands } from './httpx/viewer';
 import { registerGfCommands } from './gf/viewer';
+import { registerJsExtractorCommands } from './jsextractor/viewer';
+import { registerJsDownloaderCommands } from './jsdownloader/viewer';
 import { FeaturesProvider } from './sidebar/featuresProvider';
 
 export function activate(context: vscode.ExtensionContext) {
@@ -12,6 +14,12 @@ export function activate(context: vscode.ExtensionContext) {
     
     const gfCommands = registerGfCommands(context);
     context.subscriptions.push(...gfCommands);
+    
+    const jsExtractorCommands = registerJsExtractorCommands(context);
+    context.subscriptions.push(...jsExtractorCommands);
+    
+    const jsDownloaderCommands = registerJsDownloaderCommands(context);
+    context.subscriptions.push(...jsDownloaderCommands);
 }
 
 export function deactivate() {}

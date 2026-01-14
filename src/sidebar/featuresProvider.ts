@@ -26,6 +26,28 @@ export class FeaturesProvider implements vscode.TreeDataProvider<FeatureItem> {
                 arguments: []
             },
             'search'
+        ),
+        new FeatureItem(
+            'js endpoint extractor',
+            'extract endpoints, secrets, and URLs from JavaScript',
+            vscode.TreeItemCollapsibleState.None,
+            {
+                command: 'openhunt.jsextractor.openViewer',
+                title: 'open js endpoint extractor',
+                arguments: []
+            },
+            'code'
+        ),
+        new FeatureItem(
+            'js downloader',
+            'bulk download js files from urls or txt file',
+            vscode.TreeItemCollapsibleState.None,
+            {
+                command: 'openhunt.jsdownloader.openViewer',
+                title: 'open js downloader',
+                arguments: []
+            },
+            'cloud-download'
         )
     ];
 
